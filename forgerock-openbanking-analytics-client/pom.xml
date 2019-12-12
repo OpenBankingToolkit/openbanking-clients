@@ -119,6 +119,12 @@
             <artifactId>assertj-core</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>7.0.4</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
