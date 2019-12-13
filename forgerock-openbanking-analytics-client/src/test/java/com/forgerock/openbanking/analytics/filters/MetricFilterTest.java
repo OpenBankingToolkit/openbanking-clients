@@ -24,7 +24,6 @@ import com.forgerock.openbanking.analytics.configuration.MetricsConfigurationPro
 import com.forgerock.openbanking.analytics.model.entries.EndpointUsageEntry;
 import com.forgerock.openbanking.analytics.services.MetricService;
 import com.forgerock.openbanking.model.UserContext;
-import org.apache.catalina.ssi.ByteArrayServletOutputStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,6 +36,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
@@ -65,7 +65,7 @@ public class MetricFilterTest {
         mockRequest = mock(HttpServletRequest.class);
         given(mockRequest.getHeaderNames()).willReturn(Collections.emptyEnumeration());
         mockResponse = mock(HttpServletResponse.class);
-        given(mockResponse.getOutputStream()).willReturn(new ByteArrayServletOutputStream());
+        given(mockResponse.getOutputStream()).willReturn(new ServletOutputStreamWrapper(new ByteArrayOutputStream()));
 
         SecurityContextHolder.getContext().setAuthentication(new TestingAuthenticationToken("test1", ""));
     }
