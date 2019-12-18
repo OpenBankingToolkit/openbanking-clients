@@ -33,4 +33,5 @@ public
 class EndpointTableFilter {
     public String field;
     public String regex;
+    public boolean notNull;
 }
