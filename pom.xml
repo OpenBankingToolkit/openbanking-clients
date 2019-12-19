@@ -51,6 +51,7 @@
     <modules>
         <module>forgerock-openbanking-jwkms-client</module>
         <module>forgerock-openbanking-analytics-client</module>
+        <module>forgerock-openbanking-analytics-webclient</module>
     </modules>
 
 

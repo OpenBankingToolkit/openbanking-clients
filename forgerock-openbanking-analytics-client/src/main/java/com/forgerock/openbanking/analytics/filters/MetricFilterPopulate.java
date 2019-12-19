@@ -34,8 +34,6 @@ import org.springframework.stereotype.Component;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 
-import static com.forgerock.openbanking.analytics.utils.MetricUtils.ANALYTICS_ENABLED_HEADER_NAME;
-
 @Slf4j
 @Component
 @Order(Ordered.LOWEST_PRECEDENCE)
@@ -61,7 +59,7 @@ public class MetricFilterPopulate implements Filter {
 
         httpres.setHeader("UserType", userType.name());
         httpres.setHeader("UserId", authentication.getName());
-        httpres.setHeader(ANALYTICS_ENABLED_HEADER_NAME, isAnalyticsEnabled.toString());
+        httpres.setHeader(MetricUtils.ANALYTICS_ENABLED_HEADER_NAME, isAnalyticsEnabled.toString());
 
         chain.doFilter(request, response);
     }

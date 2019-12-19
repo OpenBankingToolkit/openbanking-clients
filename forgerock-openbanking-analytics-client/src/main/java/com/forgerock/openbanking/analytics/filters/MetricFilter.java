@@ -25,6 +25,7 @@ import com.forgerock.openbanking.analytics.model.entries.EndpointUsageEntry;
 import com.forgerock.openbanking.analytics.model.entries.GeoIP;
 import com.forgerock.openbanking.analytics.model.openbanking.OpenBankingAPI;
 import com.forgerock.openbanking.analytics.services.MetricService;
+import com.forgerock.openbanking.analytics.utils.MetricUtils;
 import com.forgerock.openbanking.model.UserContext;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
@@ -43,8 +44,6 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
-
-import static com.forgerock.openbanking.analytics.utils.MetricUtils.ANALYTICS_ENABLED_HEADER_NAME;
 
 @Slf4j
 @Component
@@ -89,8 +88,8 @@ public class MetricFilter implements Filter {
                 log.trace("No configured endpoints for metrics in {} so no endpoint metrics will be captured", applicationName);
                 return;
             }
-            if (counter.getHeaderNames().contains(ANALYTICS_ENABLED_HEADER_NAME)
-                    && !counter.getHeader(ANALYTICS_ENABLED_HEADER_NAME).equals("true")) {
+            if (counter.getHeaderNames().contains(MetricUtils.ANALYTICS_ENABLED_HEADER_NAME)
+                    && !counter.getHeader(MetricUtils.ANALYTICS_ENABLED_HEADER_NAME).equals("true")) {
                 log.trace("This trace id is marked as excluded");
                 return;
             }

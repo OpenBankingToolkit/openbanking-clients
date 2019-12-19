@@ -32,8 +32,6 @@ import org.joda.time.DateTime;
 
 import java.util.LinkedList;
 
-import static com.forgerock.openbanking.analytics.model.kpi.EndpointsUsageAggregation.BY_RESPONSE_TIME;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -58,7 +56,7 @@ class EndpointUsageKpiRequest {
 
     public AggregationMethod getAggregationMethod() {
         if (aggregationMethod == null) {
-            if (getAggregations().contains(BY_RESPONSE_TIME)) {
+            if (getAggregations().contains(EndpointsUsageAggregation.BY_RESPONSE_TIME)) {
                 setAggregationMethod(AggregationMethod.BY_NB_RESPONSE_TIME);
             } else {
                 setAggregationMethod(AggregationMethod.BY_NB_CALLS);
