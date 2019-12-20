@@ -49,9 +49,9 @@
     </properties>
 
     <modules>
-        <module>forgerock-openbanking-jwkms-client</module>
         <module>forgerock-openbanking-analytics-client</module>
         <module>forgerock-openbanking-analytics-webclient</module>
+        <module>forgerock-openbanking-jwkms-client</module>
     </modules>
 
 
