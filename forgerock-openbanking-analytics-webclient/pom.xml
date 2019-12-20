@@ -31,6 +31,7 @@
         <groupId>com.forgerock.openbanking.clients</groupId>
         <artifactId>forgerock-openbanking-reference-implementation-clients</artifactId>
         <version>1.0.12-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <dependencies>
