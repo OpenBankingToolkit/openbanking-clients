@@ -45,7 +45,7 @@ public class MetricsConfiguration {
 
     @ConditionalOnMissingBean(WebClient.class)
     @Bean
-    WebClient webClient() {
+    WebClient defaultWebClient() {
         return WebClient.create();
     }
 
