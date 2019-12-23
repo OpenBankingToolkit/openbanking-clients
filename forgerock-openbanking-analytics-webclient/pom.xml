@@ -23,41 +23,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.forgerock.openbanking.clients</groupId>
-    <artifactId>forgerock-openbanking-analytics-client</artifactId>
+    <artifactId>forgerock-openbanking-analytics-webclient</artifactId>
     <packaging>jar</packaging>
-    <name>analytics-client</name>
+    <name>analytics-webclient</name>
 
     <parent>
-        <groupId>com.forgerock.openbanking.clients</groupId>
         <artifactId>forgerock-openbanking-reference-implementation-clients</artifactId>
+        <groupId>com.forgerock.openbanking.clients</groupId>
         <version>1.0.13-SNAPSHOT</version>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>com.forgerock.openbanking</groupId>
-            <artifactId>forgerock-openbanking-model</artifactId>
+            <groupId>com.forgerock.openbanking.clients</groupId>
+            <artifactId>forgerock-openbanking-analytics-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-joda</artifactId>
         </dependency>
         <dependency>
             <groupId>io.zipkin.brave</groupId>
@@ -66,6 +53,11 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.konghq</groupId>
+            <artifactId>unirest-java</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

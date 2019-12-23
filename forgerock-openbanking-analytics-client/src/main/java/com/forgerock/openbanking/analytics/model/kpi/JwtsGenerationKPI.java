@@ -20,8 +20,8 @@
  */
 package com.forgerock.openbanking.analytics.model.kpi;
 
-import com.forgerock.openbanking.analytics.model.KPI;
 import com.forgerock.openbanking.analytics.model.entries.JwtsGenerationEntry;
+import com.forgerock.openbanking.analytics.model.KPI;
 
 import java.util.HashMap;
 import java.util.Map;

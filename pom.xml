@@ -49,8 +49,9 @@
     </properties>
 
     <modules>
-        <module>forgerock-openbanking-jwkms-client</module>
         <module>forgerock-openbanking-analytics-client</module>
+        <module>forgerock-openbanking-analytics-webclient</module>
+        <module>forgerock-openbanking-jwkms-client</module>
     </modules>
 
 
@@ -83,13 +84,8 @@
                 <version>${ob-common.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.forgerock.openbanking.analytics</groupId>
+                <groupId>com.forgerock.openbanking.clients</groupId>
                 <artifactId>forgerock-openbanking-analytics-client</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.forgerock.openbanking.jwkms</groupId>
-                <artifactId>forgerock-openbanking-jwkms-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

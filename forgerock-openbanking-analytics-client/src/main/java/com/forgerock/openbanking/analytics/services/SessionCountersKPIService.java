@@ -20,47 +20,10 @@
  */
 package com.forgerock.openbanking.analytics.services;
 
-import brave.Tracer;
-import com.forgerock.openbanking.analytics.configuration.MetricsConfiguration;
 import com.forgerock.openbanking.analytics.model.entries.SessionCounterType;
-import com.forgerock.openbanking.analytics.utils.MetricUtils;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.WebClient;
 
-import java.util.Arrays;
+public interface SessionCountersKPIService {
 
-@Slf4j
-@Service
-public class SessionCountersKPIService {
+    void incrementSessionCounter(SessionCounterType... sessionCounterType);
 
-    private final WebClient webClient;
-    private final MetricsConfiguration metricsConfiguration;
-    private final Tracer tracer;
-
-    public SessionCountersKPIService(WebClient webClient, MetricsConfiguration metricsConfiguration, Tracer tracer) {
-        this.webClient = webClient;
-        this.metricsConfiguration = metricsConfiguration;
-        this.tracer = tracer;
-    }
-
-    public void incrementSessionCounter(SessionCounterType... sessionCounterType) {
-        if (!MetricUtils.isRequestEnabledForAnalytics(tracer)) {
-            log.debug("Request excluded for analytics");
-            return;
-        }
-        log.debug("Incrementing session counter types={}", Arrays.toString(sessionCounterType));
-        try {
-            webClient
-                    .post()
-                    .uri(metricsConfiguration.rootEndpoint + "/api/kpi/session/")
-                    .body(BodyInserters.fromObject(sessionCounterType))
-                    .retrieve().bodyToMono(String.class)
-                    .log()
-                    .subscribe(response -> log.debug("Response from metrics: {}", response));
-        } catch (Exception e) {
-            log.warn("Couldn't send session counters {} KPI to metrics", sessionCounterType, e);
-        }
-    }
 }

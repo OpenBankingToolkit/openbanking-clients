@@ -18,15 +18,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.forgerock.openbanking.analytics.configuration;
+package com.forgerock.openbanking.analytics.webclient.configuration;
 
-import com.forgerock.openbanking.config.ApplicationConfiguration;
-import com.nimbusds.jose.jwk.JWKSet;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
-public class MetricsConfiguration implements ApplicationConfiguration {
+@Configuration
+public class MetricsConfiguration {
 
     @Value("${metrics.endpoints.root}")
     public String rootEndpoint;
@@ -40,13 +43,10 @@ public class MetricsConfiguration implements ApplicationConfiguration {
     @Value("${metrics.endpoints.jwts-validation.add-entries}")
     public String jwtsValidationAddEntries;
 
-    @Override
-    public String getIssuerID() {
-        return "metrics";
+    @ConditionalOnMissingBean(WebClient.class)
+    @Bean
+    WebClient defaultWebClient() {
+        return WebClient.create();
     }
 
-    @Override
-    public JWKSet getJwkSet() {
-        return null;
-    }
 }

@@ -18,9 +18,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.forgerock.openbanking.analytics.filters;
+package filters;
 
 import com.forgerock.openbanking.analytics.configuration.MetricsConfigurationProperties;
+import com.forgerock.openbanking.analytics.filters.MetricFilter;
+import com.forgerock.openbanking.analytics.filters.ServletOutputStreamWrapper;
 import com.forgerock.openbanking.analytics.model.entries.EndpointUsageEntry;
 import com.forgerock.openbanking.analytics.services.MetricService;
 import com.forgerock.openbanking.model.UserContext;

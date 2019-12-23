@@ -20,6 +20,7 @@
  */
 package com.forgerock.openbanking.analytics.model.kpi;
 
+import com.forgerock.openbanking.analytics.model.kpi.EndpointsUsageAggregation;
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 

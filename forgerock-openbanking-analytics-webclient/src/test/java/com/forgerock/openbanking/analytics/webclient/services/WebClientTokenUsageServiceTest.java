@@ -18,11 +18,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.forgerock.openbanking.analytics.services;
+package com.forgerock.openbanking.analytics.webclient.services;
 
 import brave.Tracer;
-import com.forgerock.openbanking.analytics.configuration.MetricsConfiguration;
 import com.forgerock.openbanking.analytics.model.entries.TokenUsage;
+import com.forgerock.openbanking.analytics.webclient.configuration.MetricsConfiguration;
 import com.forgerock.openbanking.model.oidc.AccessTokenResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,7 +39,7 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TokenUsageServiceTest {
+public class WebClientTokenUsageServiceTest {
 
     @Spy
     private MetricsConfiguration metricsConfiguration = new MetricsConfiguration() {{
@@ -52,7 +52,7 @@ public class TokenUsageServiceTest {
     private Tracer tracer;
 
     @Spy
-    private TokenUsageService tokenUsageService = spy(new TokenUsageService(webClient, metricsConfiguration, tracer) {
+    private WebClientTokenUsageService webClientTokenUsageService = spy(new WebClientTokenUsageService(webClient, metricsConfiguration, tracer) {
 
         @Override
         public void increment(Collection<TokenUsage> tokenUsages) {
@@ -66,10 +66,10 @@ public class TokenUsageServiceTest {
         accessTokenResponse.setAccess_token("not null");
 
         // When
-        tokenUsageService.incrementTokenUsage(accessTokenResponse);
+        webClientTokenUsageService.incrementTokenUsage(accessTokenResponse);
 
         // Then
-        verify(tokenUsageService).increment( Collections.singletonList(TokenUsage.ACCESS_TOKEN));
+        verify(webClientTokenUsageService).increment( Collections.singletonList(TokenUsage.ACCESS_TOKEN));
     }
 
     @Test
@@ -79,10 +79,10 @@ public class TokenUsageServiceTest {
         accessTokenResponse.setId_token("not null");
 
         // When
-        tokenUsageService.incrementTokenUsage(accessTokenResponse);
+        webClientTokenUsageService.incrementTokenUsage(accessTokenResponse);
 
         // Then
-        verify(tokenUsageService).increment( Collections.singletonList(TokenUsage.ID_TOKEN));
+        verify(webClientTokenUsageService).increment( Collections.singletonList(TokenUsage.ID_TOKEN));
     }
 
     @Test
@@ -93,10 +93,10 @@ public class TokenUsageServiceTest {
         accessTokenResponse.setId_token("not null");
 
         // When
-        tokenUsageService.incrementTokenUsage(accessTokenResponse);
+        webClientTokenUsageService.incrementTokenUsage(accessTokenResponse);
 
         // Then
-        verify(tokenUsageService).increment(Arrays.asList(TokenUsage.ACCESS_TOKEN, TokenUsage.ID_TOKEN));
+        verify(webClientTokenUsageService).increment(Arrays.asList(TokenUsage.ACCESS_TOKEN, TokenUsage.ID_TOKEN));
     }
 
     @Test
@@ -107,7 +107,7 @@ public class TokenUsageServiceTest {
         //given(restTemplate.postForEntity(anyString(), any(), any())).willThrow(RestClientException.class);
 
         // When
-        tokenUsageService.incrementTokenUsage(accessTokenResponse);
+        webClientTokenUsageService.incrementTokenUsage(accessTokenResponse);
 
         // Then no exception
     }
