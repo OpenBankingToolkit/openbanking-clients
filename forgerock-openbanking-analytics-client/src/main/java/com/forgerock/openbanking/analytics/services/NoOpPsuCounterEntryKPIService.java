@@ -20,10 +20,12 @@
  */
 package com.forgerock.openbanking.analytics.services;
 
-import com.forgerock.openbanking.analytics.model.entries.ConsentStatusEntry;
 
-public interface ConsentMetricService {
+import com.forgerock.openbanking.analytics.model.entries.PsuCounterEntry;
 
-    void sendConsentActivity(ConsentStatusEntry consentStatusEntry);
+public class NoOpPsuCounterEntryKPIService implements PsuCounterEntryKPIService {
+        @Override
+        public void pushPsuCounterEntry(PsuCounterEntry entry) {
 
-}
+        }
+    }

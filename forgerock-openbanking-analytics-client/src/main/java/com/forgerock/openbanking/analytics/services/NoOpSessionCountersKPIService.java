@@ -20,10 +20,12 @@
  */
 package com.forgerock.openbanking.analytics.services;
 
-import com.forgerock.openbanking.analytics.model.entries.ConsentStatusEntry;
+import com.forgerock.openbanking.analytics.model.entries.SessionCounterType;
 
-public interface ConsentMetricService {
+public class NoOpSessionCountersKPIService implements SessionCountersKPIService {
 
-    void sendConsentActivity(ConsentStatusEntry consentStatusEntry);
+        @Override
+        public void incrementSessionCounter(SessionCounterType... sessionCounterType) {
 
-}
+        }
+    }

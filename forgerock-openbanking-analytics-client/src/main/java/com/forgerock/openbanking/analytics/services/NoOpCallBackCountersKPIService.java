@@ -20,10 +20,13 @@
  */
 package com.forgerock.openbanking.analytics.services;
 
-import com.forgerock.openbanking.analytics.model.entries.ConsentStatusEntry;
+import com.forgerock.openbanking.analytics.model.entries.callback.CallBackCounterEntry;
 
-public interface ConsentMetricService {
+import java.util.List;
 
-    void sendConsentActivity(ConsentStatusEntry consentStatusEntry);
+public class NoOpCallBackCountersKPIService implements CallBackCountersKPIService {
+        @Override
+        public void sendCallBackEntries(List<CallBackCounterEntry> callBackCounterEntries) {
 
-}
+        }
+    }

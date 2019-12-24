@@ -20,10 +20,11 @@
  */
 package com.forgerock.openbanking.analytics.services;
 
-import com.forgerock.openbanking.analytics.model.entries.ConsentStatusEntry;
+import com.forgerock.openbanking.analytics.model.entries.DirectoryCounterType;
 
-public interface ConsentMetricService {
+public class NoOpDirectoryCountersKPIService implements DirectoryCountersKPIService {
+        @Override
+        public void incrementTokenUsage(DirectoryCounterType... directoryCounterType) {
 
-    void sendConsentActivity(ConsentStatusEntry consentStatusEntry);
-
-}
+        }
+    }

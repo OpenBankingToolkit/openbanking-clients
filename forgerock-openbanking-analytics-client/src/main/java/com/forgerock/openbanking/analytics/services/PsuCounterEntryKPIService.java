@@ -24,6 +24,6 @@ import com.forgerock.openbanking.analytics.model.entries.PsuCounterEntry;
 
 public interface PsuCounterEntryKPIService {
 
-    public void pushPsuCounterEntry(PsuCounterEntry entry);
+    void pushPsuCounterEntry(PsuCounterEntry entry);
 
 }

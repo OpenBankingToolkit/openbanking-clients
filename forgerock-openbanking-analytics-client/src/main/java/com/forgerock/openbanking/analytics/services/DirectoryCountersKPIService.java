@@ -24,5 +24,5 @@ import com.forgerock.openbanking.analytics.model.entries.DirectoryCounterType;
 
 public interface DirectoryCountersKPIService {
 
-    public void incrementTokenUsage(DirectoryCounterType... directoryCounterType);
+    void incrementTokenUsage(DirectoryCounterType... directoryCounterType);
 }
