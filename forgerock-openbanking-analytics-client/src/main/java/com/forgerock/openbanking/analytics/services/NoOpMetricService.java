@@ -26,19 +26,40 @@ import com.forgerock.openbanking.analytics.model.entries.JwtsValidationEntry;
 
 import java.util.List;
 
-public interface MetricService {
+public class NoOpMetricService implements MetricService {
 
-    void addEndpointUsageEntry(EndpointUsageEntry endpointUsageEntry);
+        @Override
+        public void addEndpointUsageEntry(EndpointUsageEntry endpointUsageEntry) {
 
-    void addJwtsGenerationEntry(JwtsGenerationEntry jwtsGenerationEntry);
+        }
 
-    void addJwtsValidationEntry(JwtsValidationEntry jwtsValidationEntry);
+        @Override
+        public void addJwtsGenerationEntry(JwtsGenerationEntry jwtsGenerationEntry) {
 
-    void pushMetrics();
+        }
 
-    List<EndpointUsageEntry> getEndpointUsageMetric();
+        @Override
+        public void addJwtsValidationEntry(JwtsValidationEntry jwtsValidationEntry) {
 
-    List<JwtsGenerationEntry> getJwtsGenerationMetric();
+        }
 
-    List<JwtsValidationEntry> getJwtsValidationMetric();
-}
+        @Override
+        public void pushMetrics() {
+
+        }
+
+        @Override
+        public List<EndpointUsageEntry> getEndpointUsageMetric() {
+            return null;
+        }
+
+        @Override
+        public List<JwtsGenerationEntry> getJwtsGenerationMetric() {
+            return null;
+        }
+
+        @Override
+        public List<JwtsValidationEntry> getJwtsValidationMetric() {
+            return null;
+        }
+    }

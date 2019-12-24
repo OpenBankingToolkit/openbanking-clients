@@ -22,8 +22,9 @@ package com.forgerock.openbanking.analytics.services;
 
 import com.forgerock.openbanking.analytics.model.entries.ConsentStatusEntry;
 
-public interface ConsentMetricService {
+public class NoOpConsentMetricService implements ConsentMetricService {
+        @Override
+        public void sendConsentActivity(ConsentStatusEntry consentStatusEntry) {
 
-    void sendConsentActivity(ConsentStatusEntry consentStatusEntry);
-
-}
+        }
+    }

@@ -21,13 +21,11 @@
 package com.forgerock.openbanking.analytics.services;
 
 import com.forgerock.openbanking.analytics.model.entries.callback.CallBackCounterEntry;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface CallBackCountersKPIService {
 
-    public void sendCallBackEntries(List<CallBackCounterEntry> callBackCounterEntries);
+    void sendCallBackEntries(List<CallBackCounterEntry> callBackCounterEntries);
 
 }

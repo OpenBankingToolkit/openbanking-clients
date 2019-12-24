@@ -20,10 +20,25 @@
  */
 package com.forgerock.openbanking.analytics.services;
 
-import com.forgerock.openbanking.analytics.model.entries.ConsentStatusEntry;
+import com.forgerock.openbanking.analytics.model.entries.TokenUsage;
+import com.forgerock.openbanking.model.oidc.AccessTokenResponse;
 
-public interface ConsentMetricService {
+import java.util.Collection;
 
-    void sendConsentActivity(ConsentStatusEntry consentStatusEntry);
+public class NoOpTokenUsageService implements TokenUsageService {
 
-}
+        @Override
+        public void incrementTokenUsage(TokenUsage... tokenUsage) {
+
+        }
+
+        @Override
+        public void incrementTokenUsage(AccessTokenResponse accessTokenResponse) {
+
+        }
+
+        @Override
+        public void increment(Collection<TokenUsage> tokenUsages) {
+
+        }
+    }
