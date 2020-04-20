@@ -44,7 +44,7 @@
     <url>http://www.forgerock.org</url>
 
     <properties>
-        <ob-common.version>1.0.70</ob-common.version>
+        <ob-common.version>1.0.73</ob-common.version>
     </properties>
 
     <modules>
