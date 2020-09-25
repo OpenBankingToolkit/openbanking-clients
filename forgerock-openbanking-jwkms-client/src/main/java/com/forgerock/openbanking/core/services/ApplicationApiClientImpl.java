@@ -24,6 +24,7 @@ import com.forgerock.openbanking.core.model.Application;
 import com.forgerock.openbanking.core.model.CertificateAuthority;
 import com.forgerock.openbanking.model.ApplicationIdentity;
 import com.nimbusds.jose.jwk.JWK;
+import com.nimbusds.jose.util.JSONObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -171,7 +172,7 @@ public class ApplicationApiClientImpl implements ApplicationApiClient {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         ParameterizedTypeReference<ApplicationIdentity> ptr = new ParameterizedTypeReference<ApplicationIdentity>() {};
-        HttpEntity<String> request = new HttpEntity<>(jwk.toJSONObject().toJSONString(), headers);
+        HttpEntity<String> request = new HttpEntity<>(JSONObjectUtils.toJSONString(jwk.toJSONObject()), headers);
 
         ResponseEntity<ApplicationIdentity> entity = restTemplate.exchange(jwkmsRoot + "api/application/authenticate",
                 HttpMethod.POST, request, ptr);
