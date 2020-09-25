@@ -21,15 +21,13 @@
 package com.forgerock.openbanking.core.model;
 
 import com.nimbusds.jwt.SignedJWT;
+import com.nimbusds.jose.shaded.json.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.minidev.json.JSONObject;
-
 import java.text.ParseException;
-import java.util.Map;
 
 @Data
 @Builder
