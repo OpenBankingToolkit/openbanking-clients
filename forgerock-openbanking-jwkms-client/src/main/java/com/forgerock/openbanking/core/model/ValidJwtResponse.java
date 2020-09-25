@@ -29,6 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 
 import java.text.ParseException;
+import java.util.Map;
 
 @Data
 @Builder
@@ -38,6 +39,7 @@ import java.text.ParseException;
 public class ValidJwtResponse {
 
     private static ValidJwtResponse VALID_JWT = new ValidJwtResponse(true, "");
+
 
     public boolean isValid;
     public String message;
@@ -59,11 +61,9 @@ public class ValidJwtResponse {
     }
 
     public static Object valid(SignedJWT jws) {
-
         ValidJwtResponseBuilder builder = ValidJwtResponse.builder()
                 .isValid(true)
-                .jwtHeader(jws.getHeader().toJSONObject())
-                ;
+                .jwtHeader(new JSONObject(jws.getHeader().toJSONObject()));
 
         try {
             builder.jwtPayload(jws.getJWTClaimsSet().toJSONObject());

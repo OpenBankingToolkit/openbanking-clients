@@ -30,7 +30,7 @@
     <parent>
         <artifactId>forgerock-openbanking-reference-implementation-clients</artifactId>
         <groupId>com.forgerock.openbanking.clients</groupId>
-        <version>1.0.38-SNAPSHOT</version>
+        <version>1.0.40-SNAPSHOT</version>
     </parent>
 
     <dependencies>
@@ -45,10 +45,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.zipkin.brave</groupId>
-            <artifactId>brave</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
