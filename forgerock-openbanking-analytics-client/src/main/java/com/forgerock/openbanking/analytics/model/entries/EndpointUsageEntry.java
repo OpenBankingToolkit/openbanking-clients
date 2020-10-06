@@ -46,7 +46,6 @@ public class EndpointUsageEntry {
 
     @JsonDeserialize(using = IsoDateTimeDeserializer.class)
     @JsonSerialize(using = IsoDateTimeSerializer.class)
-
     @Indexed
     private DateTime date;
     private String identityId;

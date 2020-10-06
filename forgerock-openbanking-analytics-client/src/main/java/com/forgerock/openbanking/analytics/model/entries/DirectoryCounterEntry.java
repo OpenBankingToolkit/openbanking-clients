@@ -20,6 +20,10 @@
  */
 package com.forgerock.openbanking.analytics.model.entries;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.forgerock.openbanking.serialiser.IsoDateTimeDeserializer;
+import com.forgerock.openbanking.serialiser.IsoDateTimeSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +39,9 @@ public class DirectoryCounterEntry {
 
     @Indexed
     private DirectoryCounterType directoryCounterType;
+
+    @JsonDeserialize(using = IsoDateTimeDeserializer.class)
+    @JsonSerialize(using = IsoDateTimeSerializer.class)
     @Indexed
     private DateTime day;
     private Long count;
