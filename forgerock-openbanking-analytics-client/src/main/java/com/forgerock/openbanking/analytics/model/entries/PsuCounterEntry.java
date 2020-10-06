@@ -20,6 +20,10 @@
  */
 package com.forgerock.openbanking.analytics.model.entries;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.forgerock.openbanking.serialiser.IsoDateTimeDeserializer;
+import com.forgerock.openbanking.serialiser.IsoDateTimeSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,6 +39,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @Document
 public class PsuCounterEntry {
+
+    @JsonDeserialize(using = IsoDateTimeDeserializer.class)
+    @JsonSerialize(using = IsoDateTimeSerializer.class)
     @Indexed
     @Id
     private DateTime day;

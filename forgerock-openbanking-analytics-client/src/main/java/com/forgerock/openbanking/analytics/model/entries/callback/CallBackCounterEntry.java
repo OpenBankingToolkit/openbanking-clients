@@ -20,6 +20,10 @@
  */
 package com.forgerock.openbanking.analytics.model.entries.callback;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.forgerock.openbanking.serialiser.IsoDateTimeDeserializer;
+import com.forgerock.openbanking.serialiser.IsoDateTimeSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,6 +40,9 @@ public class CallBackCounterEntry {
     @Indexed
     private CallBackResponseStatus callBackResponseStatus;
     private String tppId;
+
+    @JsonDeserialize(using = IsoDateTimeDeserializer.class)
+    @JsonSerialize(using = IsoDateTimeSerializer.class)
     private DateTime date;
     private String redirectUri;
 }
