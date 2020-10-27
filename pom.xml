@@ -27,7 +27,7 @@
     <name>ForgeRock OpenBanking Reference Implementation - Clients</name>
     <groupId>com.forgerock.openbanking.clients</groupId>
     <artifactId>forgerock-openbanking-reference-implementation-clients</artifactId>
-    <version>1.0.43-SNAPSHOT</version>
+    <version>1.0.44-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -44,7 +44,7 @@
     <url>http://www.forgerock.org</url>
 
     <properties>
-        <ob-common.version>1.0.83</ob-common.version>
+        <ob-common.version>1.0.84</ob-common.version>
     </properties>
 
     <modules>
