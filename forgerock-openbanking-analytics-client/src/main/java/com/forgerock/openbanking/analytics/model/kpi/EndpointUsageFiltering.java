@@ -20,7 +20,7 @@
  */
 package com.forgerock.openbanking.analytics.model.kpi;
 
-import com.forgerock.openbanking.analytics.model.openbanking.OBGroupName;
+import com.forgerock.openbanking.api.annotations.OBGroupName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

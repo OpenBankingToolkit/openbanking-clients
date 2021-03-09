@@ -23,7 +23,7 @@ package com.forgerock.openbanking.analytics.filters;
 import com.forgerock.openbanking.analytics.configuration.MetricsConfigurationProperties;
 import com.forgerock.openbanking.analytics.model.entries.EndpointUsageEntry;
 import com.forgerock.openbanking.analytics.model.entries.GeoIP;
-import com.forgerock.openbanking.analytics.model.openbanking.OpenBankingAPI;
+import com.forgerock.openbanking.api.annotations.OpenBankingAPI;
 import com.forgerock.openbanking.analytics.services.MetricService;
 import com.forgerock.openbanking.analytics.utils.MetricUtils;
 import com.forgerock.openbanking.model.UserContext;
