@@ -21,7 +21,7 @@
 package com.forgerock.openbanking.analytics.model;
 
 
-import com.forgerock.openbanking.analytics.model.openbanking.OBGroupName;
+import com.forgerock.openbanking.api.annotations.OBGroupName;
 
 import java.util.Arrays;
 import java.util.List;

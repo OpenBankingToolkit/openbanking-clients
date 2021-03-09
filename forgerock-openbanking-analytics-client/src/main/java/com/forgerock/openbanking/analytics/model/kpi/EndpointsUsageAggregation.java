@@ -21,7 +21,7 @@
 package com.forgerock.openbanking.analytics.model.kpi;
 
 import com.forgerock.openbanking.analytics.model.entries.EndpointUsageAggregate;
-import com.forgerock.openbanking.analytics.model.openbanking.OBGroupName;
+import com.forgerock.openbanking.api.annotations.OBGroupName;
 import com.google.common.collect.ImmutableMap;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
