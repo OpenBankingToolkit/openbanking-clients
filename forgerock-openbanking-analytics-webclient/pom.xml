@@ -30,7 +30,7 @@
     <parent>
         <artifactId>forgerock-openbanking-reference-implementation-clients</artifactId>
         <groupId>com.forgerock.openbanking.clients</groupId>
-        <version>1.2.4-SNAPSHOT</version>
+        <version>1.2.4</version>
     </parent>
 
     <dependencies>
