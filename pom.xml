@@ -27,7 +27,7 @@
     <name>ForgeRock OpenBanking Reference Implementation - Clients</name>
     <groupId>com.forgerock.openbanking.clients</groupId>
     <artifactId>forgerock-openbanking-reference-implementation-clients</artifactId>
-    <version>1.2.12-SNAPSHOT</version>
+    <version>1.2.12</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -99,7 +99,7 @@
         <connection>scm:git:git@github.com:OpenBankingToolkit/openbanking-clients.git</connection>
         <developerConnection>scm:git:git@github.com:OpenBankingToolkit/openbanking-clients.git</developerConnection>
         <url>https://github.com/OpenBankingToolkit/openbanking-clients.git</url>
-        <tag>HEAD</tag>
+        <tag>1.2.12</tag>
     </scm>
 
     <distributionManagement>
